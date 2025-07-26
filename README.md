@@ -1,49 +1,76 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# 2048 游戏
 
-## 🚀 Quick start
+[English](./README_EN.md) | 中文
 
-1.  **Create a Gatsby site.**
+🎮 基于 Gatsby + TypeScript 构建的经典 2048 数字游戏
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## ✨ 特性
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+- 🎯 完整的 2048 游戏逻辑
+- 📱 支持键盘和触屏操作
+- 💾 自动保存最高分
+- 🎨 精美的 UI 设计
+- ⚡ 基于 React + TypeScript 开发
+- 📦 使用 Gatsby 构建
 
-2.  **Start developing.**
+## 🎮 游戏操作
 
-    Navigate into your new site’s directory and start it up.
+- **键盘操作**: 使用方向键 ↑↓←→ 或 WASD 键移动方块
+- **触屏操作**: 在手机上滑动屏幕移动方块
+- **游戏目标**: 合并相同数字的方块，努力达到 2048！
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## 🚀 快速开始
 
-3.  **Open the code and start customizing!**
+1. **安装依赖**
 
-    Your site is now running at http://localhost:8000!
+   ```shell
+   npm install
+   ```
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+2. **启动开发服务器**
 
-4.  **Learn more**
+   ```shell
+   npm run develop
+   ```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+3. **打开游戏**
 
-## 🚀 Quick start (Netlify)
+   在浏览器中访问 http://localhost:8000 开始游戏！
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## 📁 项目结构
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+```
+src/
+├── components/          # React 组件
+│   ├── Game2048.tsx    # 主游戏组件
+│   ├── GameBoard.tsx   # 游戏面板组件
+│   └── Tile.tsx        # 方块组件
+├── pages/              # Gatsby 页面
+│   ├── index.tsx       # 主页面
+│   └── 404.tsx         # 404 页面
+├── styles/             # 样式文件
+│   └── game.css        # 游戏样式
+├── types/              # TypeScript 类型定义
+│   └── game.ts         # 游戏相关类型
+└── utils/              # 工具函数
+    └── gameLogic.ts    # 游戏逻辑实现
+```
+
+## 🛠️ 技术栈
+
+- **框架**: Gatsby
+- **语言**: TypeScript
+- **UI**: React
+- **样式**: CSS
+- **状态管理**: React Hooks
+- **本地存储**: localStorage
+
+## 📦 构建与部署
+
+```shell
+# 构建生产版本
+npm run build
+
+# 本地预览构建结果
+npm run serve
+```
