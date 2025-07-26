@@ -141,118 +141,42 @@ const Game2048: React.FC = () => {
     });
   };
 
-  const headerStyle: React.CSSProperties = {
-    textAlign: 'center',
-    marginBottom: '30px',
-  };
-
-  const titleStyle: React.CSSProperties = {
-    fontSize: '80px',
-    fontWeight: 'bold',
-    color: '#776e65',
-    margin: '0',
-    fontFamily: 'Arial, sans-serif',
-  };
-
-  const subtitleStyle: React.CSSProperties = {
-    fontSize: '18px',
-    color: '#776e65',
-    margin: '10px 0',
-  };
-
-  const scoresStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '20px',
-    marginBottom: '30px',
-  };
-
-  const scoreBoxStyle: React.CSSProperties = {
-    backgroundColor: '#bbada0',
-    padding: '10px 20px',
-    borderRadius: '3px',
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    minWidth: '100px',
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    backgroundColor: '#8f7a66',
-    color: 'white',
-    border: 'none',
-    borderRadius: '3px',
-    padding: '10px 20px',
-    fontSize: '18px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    margin: '20px auto',
-    display: 'block',
-  };
-
-  const instructionsStyle: React.CSSProperties = {
-    textAlign: 'center',
-    color: '#776e65',
-    marginTop: '30px',
-    fontSize: '16px',
-  };
-
-  const gameOverStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1000,
-  };
-
-  const modalStyle: React.CSSProperties = {
-    backgroundColor: 'white',
-    padding: '40px',
-    borderRadius: '6px',
-    textAlign: 'center',
-    boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
-  };
-
   return (
-    <div>
-      <div style={headerStyle}>
-        <h1 style={titleStyle}>2048</h1>
-        <p style={subtitleStyle}>合并数字，达到2048！</p>
+    <div className="game-container">
+      <div className="game-header">
+        <h1 className="game-title">2048</h1>
+        <p className="game-subtitle">合并数字，达到2048！</p>
       </div>
 
-      <div style={scoresStyle}>
-        <div style={scoreBoxStyle}>
-          <div>分数</div>
-          <div>{gameState.score}</div>
+      <div className="scores-container">
+        <div className="score-container">
+          <div className="score-label">分数</div>
+          <div className="score-value">{gameState.score}</div>
         </div>
-        <div style={scoreBoxStyle}>
-          <div>最高分</div>
-          <div>{gameState.bestScore}</div>
+        <div className="score-container">
+          <div className="score-label">最高分</div>
+          <div className="score-value">{gameState.bestScore}</div>
         </div>
       </div>
 
-      <button style={buttonStyle} onClick={restartGame}>
+      <button className="restart-button" onClick={restartGame}>
         重新开始
       </button>
 
       <GameBoard tiles={gameState.tiles} />
 
-      <div style={instructionsStyle}>
+      <div className="game-instructions">
         <p><strong>操作方法：</strong> 使用方向键或WASD键移动方块</p>
         <p>在手机上可以滑动屏幕</p>
       </div>
 
       {gameState.isGameOver && (
-        <div style={gameOverStyle}>
-          <div style={modalStyle}>
+        <div className="game-message game-over">
+          <div className="game-message-content">
             <h2>游戏结束！</h2>
-            <p>最终分数: {gameState.score}</p>
-            <button style={buttonStyle} onClick={restartGame}>
+            <p>最终分数:</p>
+            <div className="final-score">{gameState.score}</div>
+            <button className="restart-button" onClick={restartGame}>
               再来一局
             </button>
           </div>
@@ -260,12 +184,12 @@ const Game2048: React.FC = () => {
       )}
 
       {gameState.isWon && (
-        <div style={gameOverStyle}>
-          <div style={modalStyle}>
+        <div className="game-message game-won">
+          <div className="game-message-content">
             <h2>恭喜！你赢了！</h2>
             <p>你成功达到了2048！</p>
-            <p>分数: {gameState.score}</p>
-            <button style={buttonStyle} onClick={restartGame}>
+            <div className="final-score">{gameState.score}</div>
+            <button className="restart-button" onClick={restartGame}>
               再来一局
             </button>
           </div>

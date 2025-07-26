@@ -7,32 +7,7 @@ interface GameBoardProps {
 }
 
 const GameBoard: React.FC<GameBoardProps> = ({ tiles }) => {
-  const boardStyle: React.CSSProperties = {
-    position: 'relative',
-    width: '500px',
-    height: '500px',
-    backgroundColor: '#bbada0',
-    borderRadius: '6px',
-    padding: '14px',
-    margin: '0 auto',
-  };
-
-  const gridStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: '14px',
-    left: '14px',
-    width: '472px',
-    height: '472px',
-    zIndex: 1,
-  };
-
-  const cellStyle: React.CSSProperties = {
-    position: 'absolute',
-    width: '107px',
-    height: '107px',
-    backgroundColor: 'rgba(238, 228, 218, 0.35)',
-    borderRadius: '3px',
-  };
+  const GRID_SPACING = 121; // 与CSS变量 --grid-spacing 保持同步
 
   const renderGrid = () => {
     const cells = [];
@@ -41,9 +16,9 @@ const GameBoard: React.FC<GameBoardProps> = ({ tiles }) => {
         cells.push(
           <div
             key={`${row}-${col}`}
+            className="grid-cell"
             style={{
-              ...cellStyle,
-              transform: `translate(${col * 121}px, ${row * 121}px)`,
+              transform: `translate(${col * GRID_SPACING}px, ${row * GRID_SPACING}px)`,
             }}
           />
         );
@@ -53,13 +28,15 @@ const GameBoard: React.FC<GameBoardProps> = ({ tiles }) => {
   };
 
   return (
-    <div style={boardStyle}>
-      <div style={gridStyle}>
+    <div className="game-board">
+      <div className="grid-container">
         {renderGrid()}
       </div>
-      {tiles.map(tile => (
-        <Tile key={tile.id} tile={tile} />
-      ))}
+      <div className="tile-container">
+        {tiles.map(tile => (
+          <Tile key={tile.id} tile={tile} />
+        ))}
+      </div>
     </div>
   );
 };
